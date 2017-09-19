@@ -7,7 +7,12 @@ import { Component, Input } from '@angular/core';
 
 })
 export class LhTextInputComponent {
-   @Input() placeholder:string;
+    
+    _placeholder:string = '';
+   @Input() set placeholder(placeholder:string){
+        this._placeholder= (placeholder&&placeholder.trim())||'';
+   };
+
    value:string;
 
 }

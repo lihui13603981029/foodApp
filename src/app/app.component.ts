@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
 import { Headers, Http } from '@angular/http';
  
 @Component({
@@ -7,18 +7,19 @@ import { Headers, Http } from '@angular/http';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  account: string = '账号';
-  password: string = "密码";
+  @Input() userName: string;
+  @Input() passWord: string;
+
   results: string;
   private headers = new Headers({'Content-Type': 'application/json'});
-  private httpUrl:string =  'http://47.52.21.213:8080/llz/enum/cuisine/list';
+  private httpUrl:string =  'http://47.52.21.213:8080/llz/user/signIn';
 
   constructor(private http: Http){}
 
-  request():void {
-    this.http.get(this.httpUrl).subscribe(data =>{
+  loginFoodApp():void {
+    this.http.post(this.httpUrl,{password:"123456",username:"17621252538"}).subscribe(data =>{
       console.log(data["_body"]);
-    }) 
+    });
   }
   //忘记密码
   forgetPassWord():void {
