@@ -1,6 +1,10 @@
 .super_input {
     display: block;
-    margin:  0 auto;
+    margin:  20px auto;
+    width: 70%;
     border-style: none;
     height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding-left: 15px;
 }

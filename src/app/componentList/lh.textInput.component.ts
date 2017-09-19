@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector:'superInput',
     templateUrl:'./lh.textInput.component.html',
-
     styleUrls:['./lh.component.css']
 
 })
 export class LhTextInputComponent {
-    placholderText:string = "账号";
+   @Input() placeholder:string;
+   value:string;
+
 }

@@ -1,6 +1,11 @@
 <div class="bg_div">
+    <div style="height:20%;"></div>
     <div class="login_title">Welcome</div>
-    <superInput></superInput>
-    <superInput></superInput>
-    <button (click)= "request()">请求数据</button>
+    <div style="height:10%;"></div>
+    <superInput [placeholder] = "account" ></superInput>
+    <superInput [placeholder] = "password"></superInput>
+    <div class="login_btn" (click)= "request()">立即登录</div> 
+    <div class="login_bottom">
+         <span (click) = "forgetPassWord()">忘记密码?</span><span (click)= "recodeUser()">|立即注册</span>
+    </div>  
 </div>
