@@ -7,19 +7,28 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }from './app.component';
 import {LhTextInputComponent } from './componentList/lh.textInput.component';
+import { RegisterComponent } from './components/register.component';
+import { PasswordComponent } from './components/password.component';
+import { LoginComponent } from   './components/login.component';
+
+import { AppRoutingModule } from './router/app-routing.module';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LhTextInputComponent
-   
-  ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
 
+  ],
+  declarations: [
+    AppComponent,
+    LhTextInputComponent,
+    RegisterComponent,
+    PasswordComponent,
+    LoginComponent
+   
   ],
   bootstrap: [AppComponent]
 })

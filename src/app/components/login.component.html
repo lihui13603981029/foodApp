@@ -1,0 +1,18 @@
+<div class="bg_div">
+    <div style="height:20%;"></div>
+    <div class="login_title">Welcome</div>
+    <div style="height:10%;"></div>
+        <super-input 
+            type="text"
+            name="username"
+            placeholder="姓名"
+            >
+        </super-input>
+        <super-input placeholder="密码"></super-input>
+        
+    <div class="login_btn" (click)= "loginFoodApp()">立即登录</div> 
+    <div class="login_bottom">  
+            <span (click) = "forgetPassWord()">忘记密码?</span>
+            <span (click)= "recodeUser()">|立即注册</span>
+    </div>  
+</div>
