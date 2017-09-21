@@ -1,14 +1,6 @@
-<input #input
+<input 
 class="super_input"
-[type]="type"
-[name]="name"
-(focus)="_handleFocus($event)"
-(blur)="_handleBlur($event)"
 [placeholder]="placeholder"
-[(ngModel)]="value"
-[minlength]="minlength"
-[maxlength]="maxlength"
-[readonly]="readonly"
-[disabled]="disabled">
-<i #iconDelete *ngIf="focused && !readonly" class="icon icon-delete" (click)="_handleClear($event)"></i>
- 
+[(ngModel)] = "value"
+(keyup)="onKey($event)"
+>

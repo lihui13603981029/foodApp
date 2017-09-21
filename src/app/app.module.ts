@@ -7,11 +7,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }from './app.component';
 import {LhTextInputComponent } from './componentList/lh.textInput.component';
-import { RegisterComponent } from './components/register.component';
-import { PasswordComponent } from './components/password.component';
-import { LoginComponent } from   './components/login.component';
+import { RegisterComponent } from './components/app-register/register.component';
+import { PasswordComponent } from './components/app-password/password.component';
+import { LoginComponent } from   './components/app-login/login.component';
+import { DishListComponent } from './components/app-dishList/dish-list.component';
 
 import { AppRoutingModule } from './router/app-routing.module';
+import { MyHttpService } from './service/myHttp/myHttp.service';
 
 
 @NgModule({
@@ -27,9 +29,12 @@ import { AppRoutingModule } from './router/app-routing.module';
     LhTextInputComponent,
     RegisterComponent,
     PasswordComponent,
-    LoginComponent
+    LoginComponent,
+    DishListComponent
+
    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers:[MyHttpService]
 })
 export class AppModule { }
