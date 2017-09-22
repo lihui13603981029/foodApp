@@ -1,0 +1,34 @@
+.dishType_title {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: burlywood;
+}
+
+.dishType_title button {
+    text-align: center;
+    width: 25%;
+    height: 100%;
+    border: 1px solid white;
+}
+.dishType_contain {
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+
+}
+.dishType_body {
+    margin-top: 0;
+    width: 100%;
+    height: 95%;
+    
+
+}
+.dish_cell {
+    width: 50%;
+    height: 180px;
+    float: left;
+    background-color: orange;
+}

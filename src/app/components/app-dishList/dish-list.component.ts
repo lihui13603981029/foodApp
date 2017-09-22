@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { MyHttpService }    from '../../service/myHttp/myHttp.service'
+import { Dish }             from '../../module/dish';
+import { DishType }         from '../../module/dishType';
 
 @Component({
     selector:'dish-list',
@@ -6,6 +9,32 @@ import { Component } from '@angular/core';
     styleUrls:['./dish-list.component.css']
 })
 
-export class DishListComponent {
+export class DishListComponent implements OnInit{
+
+    constructor(private httpService: MyHttpService){}
+
+    public dishTypes: Array<DishType> = [];
+    public dishs: Array<Dish> = [];
+    ngOnInit(){
+        this.showDataType();
+        this.showAllDish();
+    }
+
+    showDataType():void {
+        this.httpService.requestDishType().then(data =>{
+            this.dishTypes = data;
+        });
+    }
+
+    showAllDish():void {
+        this.httpService.requestAllDish().then(data =>{
+            this.dishs = data;
+        });
+    }
+    selectedDishType(id:string): void {
+        this.httpService.requestDishOfType(id).then(data => {
+            this.dishs = data;
+        });
+    }
 
 }

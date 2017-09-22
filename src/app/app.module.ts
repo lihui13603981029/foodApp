@@ -6,11 +6,14 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent }from './app.component';
-import {LhTextInputComponent } from './componentList/lh.textInput.component';
+import {LhTextInputComponent } from './componentList/super-input/lh.textInput.component';
+import { DishCellComponent } from './componentList/dish-cell/dish-cell.component';
 import { RegisterComponent } from './components/app-register/register.component';
 import { PasswordComponent } from './components/app-password/password.component';
 import { LoginComponent } from   './components/app-login/login.component';
 import { DishListComponent } from './components/app-dishList/dish-list.component';
+
+
 
 import { AppRoutingModule } from './router/app-routing.module';
 import { MyHttpService } from './service/myHttp/myHttp.service';
@@ -30,7 +33,8 @@ import { MyHttpService } from './service/myHttp/myHttp.service';
     RegisterComponent,
     PasswordComponent,
     LoginComponent,
-    DishListComponent
+    DishListComponent,
+    DishCellComponent
 
    
   ],

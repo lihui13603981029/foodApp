@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Injectable }       from '@angular/core';
+import { Headers, Http }    from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Dish }             from '../../module/dish';
+import { DishType }         from '../../module/dishType';
 
 @Injectable()
 
 export class MyHttpService {
     private header = new Headers({'Content-Type': 'application/json'});
     private host: string = "http://47.52.21.213:8080";
-    private loginUrl:string =this.host + "/llz/user/signIn";
-    private registerUrl: string = "/llz/user/signUp";
-    private dishTypeUrl:string = "/llz/enum/cuisine/list";
-    private allDishUrl:string = "/llz/dishes/dishesList";
+    private loginUrl:string =  `${this.host}/llz/user/signIn`;
+    private registerUrl: string = `${this.host}/llz/user/signUp`;
+    private dishTypeUrl:string =  `${this.host}/llz/enum/cuisine/list`;
+    private allDishUrl:string = `${this.host}/llz/dishes/dishesList`;
+    private allDishOfTypeUrl: string =  `${this.host}/llz/dishes/dishesListBycuisineId`;
     constructor(
         private http: Http
     ){}
@@ -18,7 +21,9 @@ export class MyHttpService {
     requestLogin(params: object):Promise<any> {
        return  this.http.post(this.loginUrl,params)
                     .toPromise()
-                    .then(response => response)
+                    .then(response => {
+                        return response.json();
+                    })
                     .catch(this.handleError);
     }
     //注册
@@ -30,19 +35,29 @@ export class MyHttpService {
 
     }
     //菜系
-    requestDishType():any {
+    requestDishType():Promise<DishType[]> {
         return    this.http.get(this.dishTypeUrl)
                         .toPromise()
-                        .then(response => response)
+                        .then(response =>response.json())
                         .catch(this.handleError);
     
     }
     //全部菜品
-    requestAllDish():Promise<any> {
+    requestAllDish():Promise<Dish[]> {
         return    this.http.get(this.allDishUrl)
                         .toPromise()
-                        .then(response => response)
+                        .then(response => response.json())
                         .catch(this.handleError);
+    }
+    //获取制定类型的菜品
+    requestDishOfType(id: string):Promise<Dish[]> {
+        const url = `${this.allDishOfTypeUrl}/${id}`;
+        return this.http.get(url)
+                    .toPromise()
+                    .then(response => {
+                     return   response.json()
+                    })
+                    .catch(this.handleError);
     }
     //返回错误信息
     private handleError(error: any): Promise<any> {

@@ -20,9 +20,14 @@ export class LoginComponent {
     ){}
   
     loginFoodApp():void {
+      
         this.httpService.requestLogin({username: this.userName, password: this.passWord})
             .then(data=>{
-              
+            
+               if(data.status == 1){
+                this.router.navigate(['/dishList']);
+               }
+                
             });
     }
     //忘记密码

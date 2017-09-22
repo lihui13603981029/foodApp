@@ -1,0 +1,13 @@
+<div class="dishType_contain">
+    <div class="dishType_title">
+        <button (click) = "showAllDish()">全部</button>
+        <button *ngFor='let dishType of dishTypes'  (click)="selectedDishType(dishType.id)">{{dishType.enumName}}</button>
+    </div>
+    <div class="dishType_body">
+        <div class="dish_cell" *ngFor= "let dish of dishs">
+            <dish-cell [dish] = "dish"></dish-cell>
+        </div>
+    </div>
+</div>
+
+
