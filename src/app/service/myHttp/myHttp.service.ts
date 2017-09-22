@@ -8,7 +8,7 @@ import { DishType }         from '../../module/dishType';
 
 export class MyHttpService {
     private header = new Headers({'Content-Type': 'application/json'});
-    private host: string = "http://47.52.21.213:8080";
+    private host: string = "your host";
     private loginUrl:string =  `${this.host}/llz/user/signIn`;
     private registerUrl: string = `${this.host}/llz/user/signUp`;
     private dishTypeUrl:string =  `${this.host}/llz/enum/cuisine/list`;
